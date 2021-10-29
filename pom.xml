@@ -13,9 +13,11 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>moviesDB</name>
 	<description>Demo project for Spring Boot</description>
-	<properties>
+		<properties>
+			<sonar.organization>kyleorr676</sonar.organization>
+			<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<java.version>17</java.version>
-	</properties>
+		</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
