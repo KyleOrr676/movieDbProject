@@ -10,7 +10,6 @@ public class FilmCollection {
     public void FilmCollection (){
         this.filmCollection.add(new Film("IT", "Horror", 250));
     }
-
 }
 
 
