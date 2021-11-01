@@ -1,15 +1,28 @@
 package com.institute.software.the.orr.kyle.moviesDB.demo;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name ="film")
 public class Film {
 
+    @Id
+    private int film_id;
     private String title;
-    private String genre;
     private int length;
+    @Column(name ="release_year")
+    private int releaseyear;
 
-    public Film(String title, String genre, int length) {
+
+
+
+    public Film(String title, int length, int releaseyear) {
         this.title = title;
-        this.genre = genre;
         this.length = length;
+        this.releaseyear = releaseyear;
+    }
+
+    public Film() {
     }
 
     public String getTitle() {
@@ -20,14 +33,6 @@ public class Film {
         this.title = title;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
     public int getLength() {
         return length;
     }
@@ -36,11 +41,19 @@ public class Film {
         this.length = length;
     }
 
-    public String getJsonObjectOfFilm() {
-        return "{" +
-                "\"title \" : \" " + title + "\"," +
-                "\", \"genre\"=\"" + genre +
-                "\", \"length\"=\"" + length +
-                "}";
+    public int getReleaseyear() {
+        return releaseyear;
     }
+
+    public void setReleaseyear(int releaseyear) {
+        this.releaseyear = releaseyear;
+    }
+
+    //    public String getJsonObjectOfFilm() {
+//        return "{" +
+//                "\"title \" : \" " + title + "\"," +
+//                "\", \"genre\"=\"" + genre +
+//                "\", \"length\"=\"" + length +
+//                "}";
+//    }
 }
