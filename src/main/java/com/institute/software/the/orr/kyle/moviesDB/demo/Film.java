@@ -12,14 +12,17 @@ public class Film {
     private int length;
     @Column(name ="release_year")
     private int releaseyear;
+    @Column(name= "rating")
+    private String rating;
+    @Column(name = "description")
+    private String description;
 
-
-
-
-    public Film(String title, int length, int releaseyear) {
+    public Film(String title, int length, int releaseyear, String rating, String description) {
         this.title = title;
         this.length = length;
         this.releaseyear = releaseyear;
+        this.rating = rating;
+        this.description = description;
     }
 
     public Film() {
@@ -49,11 +52,19 @@ public class Film {
         this.releaseyear = releaseyear;
     }
 
-    //    public String getJsonObjectOfFilm() {
-//        return "{" +
-//                "\"title \" : \" " + title + "\"," +
-//                "\", \"genre\"=\"" + genre +
-//                "\", \"length\"=\"" + length +
-//                "}";
-//    }
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

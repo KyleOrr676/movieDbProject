@@ -11,18 +11,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("/films")
 public class MoviesDBApplication {
 
 	@Autowired
 	private FilmRepository filmRepository;
+	@Autowired
+	private ActorRepository actorRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MoviesDBApplication.class, args);
 	}
 
-	@GetMapping("/all")
-	public @ResponseBody Iterable<Film> getAllUsers(){
+	@GetMapping("/films")
+	public @ResponseBody Iterable<Film> getAllFilms(){
 		return filmRepository.findAll();
+	}
+
+	@GetMapping("/actors")
+	public @ResponseBody Iterable<Actor> getAllActors(){
+		return actorRepository.findAll();
 	}
 }
