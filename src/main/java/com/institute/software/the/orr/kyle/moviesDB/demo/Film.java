@@ -9,24 +9,34 @@ public class Film {
 ///////// Attributes
 
     @Id
+    @Column(name = "film_id")
     private int film_id;
+    @Column(name = "language_id")
+    private int language_id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "length")
     private int length;
-    private int releaseyear;
+    @Column(name = "release_year")
+    private int release_year;
+    @Column(name = "rating")
     private String rating;
+    @Column(name = "description")
     private String description;
 
 ///////// Constructors
 
-    public Film(String title, int length, int releaseyear, String rating, String description) {
+    public Film(int film_id, int language_id, String title, int length, int release_year, String rating, String description) {
+        this.film_id = film_id;
+        this.language_id = language_id;
         this.title = title;
         this.length = length;
-        this.releaseyear = releaseyear;
+        this.release_year = release_year;
         this.rating = rating;
         this.description = description;
     }
 
-/////////
+///////// Getters and Setters
 
     public Film() {
     }
@@ -48,11 +58,11 @@ public class Film {
     }
 
     public int getReleaseyear() {
-        return releaseyear;
+        return release_year;
     }
 
-    public void setReleaseyear(int releaseyear) {
-        this.releaseyear = releaseyear;
+    public void setReleaseyear(int release_year) {
+        this.release_year = release_year;
     }
 
     public String getRating() {

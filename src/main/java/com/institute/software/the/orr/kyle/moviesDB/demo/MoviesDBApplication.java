@@ -5,8 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-
 
 @SpringBootApplication
 @RestController
@@ -21,6 +19,8 @@ public class MoviesDBApplication {
 		SpringApplication.run(MoviesDBApplication.class, args);
 	}
 
+
+	///////READ Function, enter option below to see list of all films and actors
 	@GetMapping("/films")
 	public @ResponseBody Iterable<Film> getAllFilms(){
 		return filmRepository.findAll();
@@ -30,19 +30,23 @@ public class MoviesDBApplication {
 	public @ResponseBody Iterable<Actor> getAllActors(){
 		return actorRepository.findAll();
 	}
-	@PostMapping("/addFilm")
-	public @ResponseBody String addAFilm (@RequestParam String title
-			,@RequestParam int releaseyear , @RequestParam int length, @RequestParam String rating, @RequestParam String description) {
 
-		Film savedFilm = new Film(title, releaseyear, length, rating, description);
+	/////// CREATE Function, enter option below to add film or actor to database using postman and entering values
+	@PostMapping("/addFilm")
+	public @ResponseBody String addAFilm (@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length
+			,@RequestParam int release_year, @RequestParam String rating, @RequestParam String description) {
+
+		Film savedFilm = new Film(film_id, language_id, title, length, release_year, rating, description);
 		filmRepository.save(savedFilm);
-		return "Saved";
+		return "Film Added Successfully";
 	}
+
 	@PostMapping("/addActor")
-	public @ResponseBody String addAnActor (@RequestParam int actor_id, @RequestParam String firstName, @RequestParam String lastName,  @RequestParam Date last_update) {
+	public @ResponseBody String addAnActor (@RequestParam int actor_id, @RequestParam String firstName,
+											@RequestParam String lastName, @RequestParam String last_update) {
 
 		Actor savedActor = new Actor(actor_id, firstName, lastName, last_update);
 		actorRepository.save(savedActor);
-		return "Saved";
+		return "Actor Added Successfully";
 	}
 }
