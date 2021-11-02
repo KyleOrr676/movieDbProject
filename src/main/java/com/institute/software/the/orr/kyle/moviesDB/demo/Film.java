@@ -36,7 +36,7 @@ public class Film {
         this.description = description;
     }
 
-///////// Getters and Setters
+///////// Methods
 
     public Film() {
     }

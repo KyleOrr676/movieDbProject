@@ -30,7 +30,7 @@ public class Actor {
         this.last_update = last_update;
     }
 
-/////// Getters and Setters
+/////// Methods
 
     public Actor(){
     }
