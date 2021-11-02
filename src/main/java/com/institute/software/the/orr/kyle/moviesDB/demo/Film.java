@@ -12,11 +12,8 @@ public class Film {
     private int film_id;
     private String title;
     private int length;
-    @Column(name ="release_year")  ///// telling JAVA where to find the information from the sakila database
     private int releaseyear;
-    @Column(name= "rating")   ///// telling JAVA where to find the information from the sakila database
     private String rating;
-    @Column(name = "description")  ///// telling JAVA where to find the information from the sakila database
     private String description;
 
 ///////// Constructors
