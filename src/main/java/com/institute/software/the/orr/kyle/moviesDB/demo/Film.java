@@ -6,16 +6,20 @@ import javax.persistence.*;
 @Table(name ="film")
 public class Film {
 
+///////// Attributes
+
     @Id
     private int film_id;
     private String title;
     private int length;
-    @Column(name ="release_year")
+    @Column(name ="release_year")  ///// telling JAVA where to find the information from the sakila database
     private int releaseyear;
-    @Column(name= "rating")
+    @Column(name= "rating")   ///// telling JAVA where to find the information from the sakila database
     private String rating;
-    @Column(name = "description")
+    @Column(name = "description")  ///// telling JAVA where to find the information from the sakila database
     private String description;
+
+///////// Constructors
 
     public Film(String title, int length, int releaseyear, String rating, String description) {
         this.title = title;
@@ -24,6 +28,8 @@ public class Film {
         this.rating = rating;
         this.description = description;
     }
+
+/////////
 
     public Film() {
     }
