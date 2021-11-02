@@ -14,7 +14,7 @@ class MoviesDbFilmTests {
 	@Test
 	public void testGetFilmLengthMethod(){
 		Film testFilm = new Film ("Harry Potter", 128, 2001, "PG", "A Fantasy film starring Daniel Radcliffe");
-		assertEquals(128, 128, "The Length is not 128");
+		assertEquals(128, testFilm.getLength(), "The film is not 128 mins long");
 	}
 	@Test
 	public void testSetFilmLengthMethod(){
@@ -26,7 +26,7 @@ class MoviesDbFilmTests {
 	@Test
 	public void testGetFilmTitleMethod(){
 		Film testFilm = new Film ("Harry Potter", 128, 2001, "PG", "A Fantasy film starring Daniel Radcliffe");
-		assertEquals("Harry Potter", "Harry Potter", "The film is not Harry Potter");
+		assertEquals("Harry Potter", testFilm.getTitle(), "The film is not Harry Potter");
 	}
 	@Test
 	public void testSetFilmTitleMethod(){
@@ -38,7 +38,7 @@ class MoviesDbFilmTests {
 	@Test
 	public void testGetFilmReleaseYearMethod(){
 		Film testFilm = new Film ("Harry Potter", 128, 2001, "PG", "A Fantasy film starring Daniel Radcliffe");
-		assertEquals(2001, 2001, "The release year is wrong");
+		assertEquals(2001, testFilm.getReleaseyear(), "The film was not released in 2001");
 	}
 	@Test
 	public void testSetFilmReleaseYearMethod(){
