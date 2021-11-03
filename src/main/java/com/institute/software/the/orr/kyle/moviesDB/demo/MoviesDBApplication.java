@@ -26,7 +26,6 @@ public class MoviesDBApplication {
 	@PostMapping("/addFilm")
 	public @ResponseBody
 	String newFilm(@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length, @RequestParam String description) {
-
 		Film savedFilm = new Film(film_id, language_id, title, length, description);
 		filmRepository.save(savedFilm);
 		return "Film Added Successfully";
@@ -53,10 +52,18 @@ public class MoviesDBApplication {
 		return filmSearch;
 	}
 
+	///////READ Function, enter film/actor ID to select a certain film/actor from the database
+
 	@GetMapping("/actors")
 	public @ResponseBody
 	Iterable<Actor> getAllActors() {
 		return actorRepository.findAll();
+	}
+
+	@GetMapping("/actorSearch/{actor_id}")
+	public @ResponseBody Actor findByActorId(@PathVariable("actor_id") int actor_id) {
+		Actor actorSearch = actorRepository.findById(actor_id).orElse(null);
+		return actorSearch;
 	}
 
 	////// UPDATE Function

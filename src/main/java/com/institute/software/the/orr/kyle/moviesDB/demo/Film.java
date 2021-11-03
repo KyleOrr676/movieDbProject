@@ -17,10 +17,10 @@ public class Film {
     private String title;
     @Column(name = "length")
     private int length;
-    @Column(name = "release_year")
-    private int release_year;
-    @Column(name = "rating")
-    private String rating;
+//    @Column(name = "release_year")
+//    private int release_year;
+//    @Column(name = "rating")
+//    private String rating;
     @Column(name = "description")
     private String description;
 
@@ -31,8 +31,8 @@ public class Film {
         this.language_id = language_id;
         this.title = title;
         this.length = length;
-        this.release_year = release_year;
-        this.rating = rating;
+//        this.release_year = release_year;
+//        this.rating = rating;
         this.description = description;
     }
 
