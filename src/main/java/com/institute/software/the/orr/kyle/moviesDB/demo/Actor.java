@@ -1,9 +1,6 @@
 package com.institute.software.the.orr.kyle.moviesDB.demo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name ="actor")
@@ -12,6 +9,7 @@ public class Actor {
 /////// Attributes
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "actor_id")
     private int actor_id;
     @Column(name= "first_name")

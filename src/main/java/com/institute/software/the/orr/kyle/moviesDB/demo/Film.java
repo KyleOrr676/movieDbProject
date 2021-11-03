@@ -74,14 +74,6 @@ public class Film {
         this.length = length;
     }
 
-//    public int getReleaseyear() {
-//        return release_year;
-//    }
-//
-//    public void setReleaseyear(int release_year) {
-//        this.release_year = release_year;
-//    }
-
     public String getDescription() {
         return description;
     }
@@ -90,8 +82,15 @@ public class Film {
         this.description = description;
     }
 
+//    public int getReleaseyear() {
+//        return release_year;
+//    }
+//
+//    public void setReleaseyear(int release_year) {
+//        this.release_year = release_year;
+//    }
 
-    //    public String getRating() {
+//    public String getRating() {
 //        return rating;
 //    }
 //

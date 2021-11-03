@@ -81,7 +81,7 @@ public class MoviesDBApplication {
 		return "Film Removed Successfully";
 	}
 
-	@DeleteMapping("/removeActor{actor_id}")
+	@DeleteMapping("/removeActor/{actor_id}")
 	public String deleteActor(@PathVariable("actor_id") int actor_id) {
 		actorRepository.deleteById(actor_id);
 		return "Actor Removed Successfully";
