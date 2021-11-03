@@ -34,13 +34,12 @@ public class MoviesDBApplication {
 	@PostMapping("/addActor")
 	public @ResponseBody
 	String newActor(@RequestParam int actor_id, @RequestParam String firstName, @RequestParam String lastName, @RequestParam String last_update) {
-
 		Actor savedActor = new Actor(actor_id, firstName, lastName, last_update);
 		actorRepository.save(savedActor);
 		return "Actor Added Successfully";
 	}
 
-	///////READ Function, enter option below to see list of all films and actors
+	///////READ Function, enter option below to see list of all films and select certain films from their ID
 
 	@GetMapping("/films")
 	public @ResponseBody
@@ -52,7 +51,7 @@ public class MoviesDBApplication {
 		return filmSearch;
 	}
 
-	///////READ Function, enter film/actor ID to select a certain film/actor from the database
+	///////READ Function, enter option below to see list of all actors and select certain actors from their ID
 
 	@GetMapping("/actors")
 	public @ResponseBody

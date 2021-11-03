@@ -9,6 +9,7 @@ public class Film {
 ///////// Attributes
 
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "film_id")
     private int film_id;
     @Column(name = "language_id")
