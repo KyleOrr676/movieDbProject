@@ -25,8 +25,8 @@ public class MoviesDBApplication {
 
 	@PostMapping("/addFilm")
 	public @ResponseBody
-	String newFilm(@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length, @RequestParam String description) {
-		Film savedFilm = new Film(film_id, language_id, title, length, description);
+	String newFilm(@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length, @RequestParam int releaseyear, @RequestParam String description) {
+		Film savedFilm = new Film(film_id, language_id, title, length, releaseyear, description);
 		filmRepository.save(savedFilm);
 		return "Film Added Successfully";
 	}
@@ -42,8 +42,9 @@ public class MoviesDBApplication {
 	///////READ Function, enter option below to see list of all films and select certain films from their ID
 
 	@GetMapping("/films")
-	public @ResponseBody
-	Iterable<Film> getAllFilms() {return filmRepository.findAll();}
+	public @ResponseBody Iterable<Film> getAllFilms() {
+		return filmRepository.findAll();
+}
 
 	@GetMapping("/filmsSearch/{film_id}")
 	public @ResponseBody Film findById(@PathVariable("film_id") int film_id) {
