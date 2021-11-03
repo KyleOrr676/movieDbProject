@@ -26,7 +26,7 @@ public class Film {
 
 ///////// Constructors
 
-    public Film(int film_id, int language_id, String title, int length, int release_year, String rating, String description) {
+    public Film(int film_id, int language_id, String title, int length, String description) {
         this.film_id = film_id;
         this.language_id = language_id;
         this.title = title;
@@ -39,6 +39,22 @@ public class Film {
 ///////// Methods
 
     public Film() {
+    }
+
+    public int getFilm_id() {
+        return film_id;
+    }
+
+    public void setFilm_id(int film_id) {
+        this.film_id = film_id;
+    }
+
+    public int getLanguage_id() {
+        return language_id;
+    }
+
+    public void setLanguage_id(int language_id) {
+        this.language_id = language_id;
     }
 
     public String getTitle() {
@@ -57,21 +73,13 @@ public class Film {
         this.length = length;
     }
 
-    public int getReleaseyear() {
-        return release_year;
-    }
-
-    public void setReleaseyear(int release_year) {
-        this.release_year = release_year;
-    }
-
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
+//    public int getReleaseyear() {
+//        return release_year;
+//    }
+//
+//    public void setReleaseyear(int release_year) {
+//        this.release_year = release_year;
+//    }
 
     public String getDescription() {
         return description;
@@ -80,4 +88,13 @@ public class Film {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
+    //    public String getRating() {
+//        return rating;
+//    }
+//
+//    public void setRating(String rating) {
+//        this.rating = rating;
+//    }
 }

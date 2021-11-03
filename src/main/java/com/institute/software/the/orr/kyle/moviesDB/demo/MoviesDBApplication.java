@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 
 @SpringBootApplication
 @RestController
@@ -23,10 +25,9 @@ public class MoviesDBApplication {
 
 	@PostMapping("/addFilm")
 	public @ResponseBody
-	String newFilm(@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length
-			, @RequestParam int release_year, @RequestParam String rating, @RequestParam String description) {
+	String newFilm(@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length, @RequestParam String description) {
 
-		Film savedFilm = new Film(film_id, language_id, title, length, release_year, rating, description);
+		Film savedFilm = new Film(film_id, language_id, title, length, description);
 		filmRepository.save(savedFilm);
 		return "Film Added Successfully";
 	}
@@ -44,8 +45,12 @@ public class MoviesDBApplication {
 
 	@GetMapping("/films")
 	public @ResponseBody
-	Iterable<Film> getAllFilms() {
-		return filmRepository.findAll();
+	Iterable<Film> getAllFilms() {return filmRepository.findAll();}
+
+	@GetMapping("/filmsSearch/{film_id}")
+	public @ResponseBody Film findById(@PathVariable("film_id") int film_id) {
+		Film filmSearch = filmRepository.findById(film_id).orElse(null);
+		return filmSearch;
 	}
 
 	@GetMapping("/actors")
@@ -58,13 +63,13 @@ public class MoviesDBApplication {
 
 //	@PutMapping("/updateFilm{film_id}")
 //	public String editFilm(@PathVariable ("film_id") int film_id {
-//		s.setId(id);
-//		return sampleService.update(s);
+//		filmRepository.setId(film_id);
+//		return filmRepository.update(film_id);
 //	}
 
 	////// DELETE Function, enter option below to remove film or actor from database
 
-	@DeleteMapping("/removeFilm{film_id}")
+	@DeleteMapping("/removeFilm/{film_id}")
 	public String deleteFilm(@PathVariable("film_id") int film_id) {
 		filmRepository.deleteById(film_id);
 		return "Film Removed Successfully";
