@@ -16,6 +16,6 @@
 //		int actor_id = 205;
 //		Actor testActor = new Actor (205, "Daniel", "Radcliffe", 2021-11-08);
 //		testActor.setActor_id(205);
-//		assertEquals(128, testActor.getActor_id(), actor_id);
+//		assertEquals(205, testActor.getActor_id(), actor_id);
 //	}
 //}

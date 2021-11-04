@@ -10,4 +10,3 @@ Is the user a member of the Admin team?
     Given I am not a member of the admin team
     When I make a change on the website
     Then I should be told "Access denied".
-

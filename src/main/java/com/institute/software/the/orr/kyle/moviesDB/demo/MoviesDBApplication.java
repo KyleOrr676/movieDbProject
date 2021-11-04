@@ -5,7 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
 
 @SpringBootApplication
@@ -25,8 +24,9 @@ public class MoviesDBApplication {
 
 	@PostMapping("/addFilm")
 	public @ResponseBody
-	String newFilm(@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length, @RequestParam int releaseyear, @RequestParam String description) {
-		Film savedFilm = new Film(film_id, language_id, title, length, releaseyear, description);
+	String newFilm(@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length,
+				   @RequestParam String description) {
+		Film savedFilm = new Film(film_id, language_id, title, length, description);
 		filmRepository.save(savedFilm);
 		return "Film Added Successfully";
 	}
@@ -44,7 +44,7 @@ public class MoviesDBApplication {
 	@GetMapping("/films")
 	public @ResponseBody Iterable<Film> getAllFilms() {
 		return filmRepository.findAll();
-}
+	}
 
 	@GetMapping("/filmsSearch/{film_id}")
 	public @ResponseBody Film findById(@PathVariable("film_id") int film_id) {
