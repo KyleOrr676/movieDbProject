@@ -18,9 +18,7 @@ public class MoviesDBApplication {
 	@Autowired
 	private ActorRepository actorRepository;
 
-	public static void main(String[] args) {
-		SpringApplication.run(MoviesDBApplication.class, args);
-	}
+	public static void main(String[] args) {SpringApplication.run(MoviesDBApplication.class, args);}
 
 	/////// CREATE Function, enter option below to add film or actor to database using postman and entering values
 
@@ -61,7 +59,6 @@ public class MoviesDBApplication {
 	Iterable<Actor> getAllActors() {
 		return actorRepository.findAll();
 	}
-
 	@GetMapping("/actorSearch/{actor_id}")
 	public @ResponseBody Actor findByActorId(@PathVariable("actor_id") int actor_id) {
 		Actor actorSearch = actorRepository.findById(actor_id).orElse(null);
@@ -91,7 +88,6 @@ public class MoviesDBApplication {
 		filmRepository.deleteById(film_id);
 		return "Film Removed Successfully";
 	}
-
 	@DeleteMapping("/removeActor/{actor_id}")
 	public String deleteActor(@PathVariable("actor_id") int actor_id) {
 		actorRepository.deleteById(actor_id);
