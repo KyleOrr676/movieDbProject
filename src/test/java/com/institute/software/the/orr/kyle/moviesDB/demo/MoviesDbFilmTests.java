@@ -47,4 +47,28 @@ class MoviesDbFilmTests {
 		testFilm.setDescription("A Fantasy film starring Daniel Radcliffe");
 		assertEquals("A Fantasy film starring Daniel Radcliffe", testFilm.getDescription(), Description);
 	}
+	@Test
+	public void testGetFilmIDMethod(){
+		Film testFilm = new Film (1, 1,"Harry Potter", 128, "A Fantasy film starring Daniel Radcliffe");
+		assertEquals(1, testFilm.getFilm_id(), "The film ID is not 1");
+	}
+	@Test
+	public void testSetFilmIDMethod(){
+		int Film_ID = 1;
+		Film testFilm = new Film (1, 1,"Harry Potter", 128, "A Fantasy film starring Daniel Radcliffe");
+		testFilm.setFilm_id(1);
+		assertEquals(1, testFilm.getFilm_id(), Film_ID);
+	}
+	@Test
+	public void testGetFilmLanguageIDMethod(){
+		Film testFilm = new Film(1, 1, "Harry Potter", 128, "A Fantasy film starring Daniel Radcliffe");
+		assertEquals(1, testFilm.getLanguage_id(), "The language ID is not 1");
+	}
+	@Test
+	public void testSetFilmLanguageIDMethod(){
+		int Language_ID = 1;
+		Film testFilm = new Film (1, 1, "Harry Potter", 128, "A Fantasy film starring Daniel Radcliffe");
+		testFilm.setLanguage_id(1);
+		assertEquals(1, testFilm.getLanguage_id(), Language_ID);
+	}
 }
