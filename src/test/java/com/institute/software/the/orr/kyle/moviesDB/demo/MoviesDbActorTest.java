@@ -8,7 +8,7 @@ public class MoviesDbActorTest {
 
 	@Test
 	public void testGetActorIDMethod(){
-		Actor testActor = new Actor (205, "Daniel", "Radcliffe", "2021-11-04");
+		Actor testActor = new Actor (205, "Daniel", "Radcliffe", "2021-11-08");
 		assertEquals(205, testActor.getActor_id(), "The actor ID is not 205");
 	}
 	@Test
@@ -20,7 +20,7 @@ public class MoviesDbActorTest {
 	}
     @Test
 	public void testGetActorFirstNameMethod(){
-		Actor testActor = new Actor (205, "Daniel", "Radcliffe", "2021-11-04");
+		Actor testActor = new Actor (205, "Daniel", "Radcliffe", "2021-11-08");
 		assertEquals("Daniel", testActor.getFirstName(), "The actor is not Daniel");
 	}
 	@Test
@@ -32,7 +32,7 @@ public class MoviesDbActorTest {
 	}
 	@Test
 	public void testGetActorLastNameMethod(){
-		Actor testActor = new Actor (205, "Daniel", "Radcliffe", "2021-11-04");
+		Actor testActor = new Actor (205, "Daniel", "Radcliffe", "2021-11-08");
 		assertEquals("Radcliffe", testActor.getLastName(), "The actor is not Mr Radcliffe");
 	}
 	@Test
@@ -41,5 +41,17 @@ public class MoviesDbActorTest {
 		Actor testActor = new Actor (205, "Daniel", "Radcliffe", "2021-11-08");
 		testActor.setLastName("Radcliffe");
 		assertEquals("Radcliffe", testActor.getLastName(), lastName);
+	}
+	@Test
+	public void testGetActorLastUpdateMethod(){
+		Actor testActor = new Actor(205, "Daniel", "Radcliffe", "2021-11-08");
+		assertEquals("2021-11-08", testActor.getLast_update(), "The last update was not 2021-11-08");
+	}
+	@Test
+	public void testSetActorLastUpdateMethod(){
+		String lastUpdate = "2021-11-08";
+		Actor testActor = new Actor(205, "Daniel", "Radcliffe", "2021-11-08");
+		testActor.setLast_update("2021-11-08");
+		assertEquals("2021-11-08", testActor.getLast_update(), lastUpdate);
 	}
 }

@@ -3,6 +3,8 @@ package com.institute.software.the.orr.kyle.moviesDB.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -72,6 +74,14 @@ public class MoviesDBApplication {
 //	public String editFilm(@PathVariable ("film_id") int film_id {
 //		filmRepository.setId(film_id);
 //		return filmRepository.update(film_id);
+//	}
+
+//	@PutMapping("/updateFilm/{film_id}")
+//	public ResponseEntity<Film> update(@RequestBody FilmRepository filmRepository, @PathVariable Integer id);
+//		try{
+//			Film updateFilm = filmRepository.get(film_id);
+//			filmRepository.save(Film);
+//			return new ResponseEntity<>(HttpStatus.OK);
 //	}
 
 	////// DELETE Function, enter option below to remove film or actor from database
