@@ -8,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-@SpringBootTest
-public class cucumberAddFilmSD extends Film {
+public class cucumberAddFilmSD {
 
 Film newFilm;
 Film addedFilm;
@@ -25,11 +24,12 @@ Film addedFilm;
     public void addFilm(){
         filmRepository.save(newFilm);
     }
-    @When("I add the already existing film to the website")
-    public void addExistingFilm(){
-        filmRepository.save(addedFilm);
-    }
     @Then("I should be told {string}")
-    public void iShouldBeTold(String string) {
+    public void iShouldBeTold() {
+        assertEquals(filmRepository.findById(newFilm.getFilm_id()), newFilm);
+    }
+
+    @When("I add the already existing film to the website")
+    public void iAddTheAlreadyExistingFilmToTheWebsite() {
     }
 }

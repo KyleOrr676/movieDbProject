@@ -75,4 +75,6 @@ public class Film {
         this.description = description;
     }
 
+    public void updateList(Film filmRepository) {
+    }
 }
