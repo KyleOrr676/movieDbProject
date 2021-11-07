@@ -7,11 +7,12 @@ import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 public class cucumberAddFilmSD {
 
 Film newFilm;
-Film addedFilm;
 
     @Autowired
     private FilmRepository filmRepository;
@@ -24,11 +25,12 @@ Film addedFilm;
     public void addFilm(){
         filmRepository.save(newFilm);
     }
-    @Then("I should be told {string}")
+    @Then("I should be told Film added successfully")
     public void iShouldBeTold() {
-        assertEquals(filmRepository.findById(newFilm.getFilm_id()), newFilm);
+        Optional <Film> film2 = filmRepository.findById(1);
+        Film AddedFilm = film2.get();
+        assertEquals(AddedFilm.getTitle(), newFilm.getTitle());
     }
-
     @When("I add the already existing film to the website")
     public void iAddTheAlreadyExistingFilmToTheWebsite() {
     }
