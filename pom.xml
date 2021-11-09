@@ -11,6 +11,9 @@
 	<groupId>com.institute.software.the.orr.kyle.moviesDB</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>
+		jar
+	</packaging>
 	<name>moviesDB</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -111,7 +114,6 @@
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk-secretsmanager</artifactId>
@@ -122,7 +124,6 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.22</version>
 		</dependency>
-
 	</dependencies>
 
 <build>
