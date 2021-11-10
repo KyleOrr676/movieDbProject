@@ -20,7 +20,7 @@ public class MoviesDBApplication {
 
 	public static void main(String[] args) {SpringApplication.run(MoviesDBApplication.class, args);}
 
-	/////// CREATE Function, enter option below to add film or actor to database using postman and entering values
+	/////// CREATE Function, enter option below to add film or actor to database using postman and entering value
 
 	@PostMapping("/addFilm")
 	public @ResponseBody
