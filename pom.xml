@@ -180,6 +180,6 @@
 		</configuration>
 	</plugin>
 </plugins>
-	<finalName>JPA.MySQL</finalName>
+	<finalName>MoviesDBProjectJAR.jar</finalName>
 </build>
 </project>
