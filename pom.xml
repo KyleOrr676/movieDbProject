@@ -180,6 +180,6 @@
 		</configuration>
 	</plugin>
 </plugins>
-	<finalName>MoviesDBProjectJAR.jar</finalName>
+	<finalName>MoviesDBProjectJAR</finalName>
 </build>
 </project>
