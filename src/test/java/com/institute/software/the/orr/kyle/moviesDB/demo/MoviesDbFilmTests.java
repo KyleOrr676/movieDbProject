@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class MoviesDbFilmTests {
 
-	@Test
-	void contextLoads() {
-	}
+//	@Test
+//	void contextLoads() {
+//	}
 	@Test
 	public void testGetFilmIDMethod(){
 		Film testFilm = new Film (1, 1,"Harry Potter", 128, "A Fantasy film starring Daniel Radcliffe");
