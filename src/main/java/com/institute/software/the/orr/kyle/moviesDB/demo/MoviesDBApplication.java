@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @SpringBootApplication
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class MoviesDBApplication {
 
 	@Autowired
@@ -22,13 +24,20 @@ public class MoviesDBApplication {
 
 	/////// CREATE Function, enter option below to add film or actor to database using postman and entering value
 
-	@PostMapping("/addFilm")
-	public @ResponseBody
-	String newFilm(@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length,
-				   @RequestParam String description) {
-		Film savedFilm = new Film(film_id, language_id, title, length, description);
+//	@PostMapping("/addFilm")
+//	public @ResponseBody
+//	String newFilm(@RequestParam int film_id, @RequestParam int language_id, @RequestParam String title, @RequestParam int length,
+//				   @RequestParam String description) {
+//		Film savedFilm = new Film(film_id, language_id, title, length, description);
+//		filmRepository.save(savedFilm);
+//		return "Film Added Successfully";
+//	}
+
+	@PostMapping(path="/films/addfilmbody", consumes = {MediaType.APPLICATION_JSON_VALUE}, produces = {MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<Film> addAFilm(@RequestBody Film newFilm){
+		Film savedFilm = new Film (newFilm.getFilm_id(), newFilm.getLanguage_id(), newFilm.getTitle(),  newFilm.getLength(), newFilm.getDescription());
 		filmRepository.save(savedFilm);
-		return "Film Added Successfully";
+		return new ResponseEntity<Film>(savedFilm, HttpStatus.OK);
 	}
 
 	@PostMapping("/addActor")
