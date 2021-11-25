@@ -140,10 +140,10 @@
 	<artifactId>webdrivermanager</artifactId>
 	<version>4.4.3</version>
 	</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>junit</groupId>-->
+<!--			<artifactId>junit</artifactId>-->
+<!--		</dependency>-->
 
 	</dependencies>
 
