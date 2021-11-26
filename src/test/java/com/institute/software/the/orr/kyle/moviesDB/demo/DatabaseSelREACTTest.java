@@ -23,7 +23,7 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
-public class Databaseapp2Test {
+public class DatabaseSelREACTTest {
   private WebDriver driver;
   private Map<String, Object> vars;
   JavascriptExecutor js;
@@ -39,11 +39,16 @@ public class Databaseapp2Test {
     driver.quit();
   }
   @Test
-  public void databaseapp2() {
-    driver.get("http://localhost:3000/");
-    driver.manage().window().setSize(new Dimension(1920, 780));
-    driver.findElement(By.cssSelector("input:nth-child(2)")).click();
+  public void databaseSelREACT() {
+    driver.get("http://localhost:3000/?");
+    driver.manage().window().setSize(new Dimension(1645, 933));
+    driver.findElement(By.cssSelector(".SearchBar input:nth-child(2)")).click();
     assertThat(driver.switchTo().alert().getText(), is("Search Result: "));
-    driver.close();
+    driver.switchTo().alert().accept();
+    driver.findElement(By.cssSelector("form:nth-child(2) > input")).click();
+    assertThat(driver.switchTo().alert().getText(), is("A Film was successfully added: "));
+    driver.switchTo().alert().accept();
+    driver.findElement(By.cssSelector(".text-center > form > input")).click();
+    assertThat(driver.switchTo().alert().getText(), is("A Film was successfully removed: "));
   }
 }
