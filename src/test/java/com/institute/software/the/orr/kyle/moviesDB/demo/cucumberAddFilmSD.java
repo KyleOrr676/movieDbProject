@@ -35,7 +35,4 @@ Film newFilm;
         assertEquals(AddedFilm.getTitle(), newFilm.getTitle());
         throw new io.cucumber.java.PendingException();
     }
-//    @When("I add the already existing film to the website")
-//    public void iAddTheAlreadyExistingFilmToTheWebsite() {
-//    }
 }

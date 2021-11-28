@@ -74,7 +74,7 @@ public class MoviesDBApplication {
 		return actorSearch;
 	}
 
-	////// UPDATE Function
+	////// UPDATE Function (allows user to update description for certain films by selecting film ID)
 
 	@PutMapping("/updateFilm")
 	public @ResponseBody
