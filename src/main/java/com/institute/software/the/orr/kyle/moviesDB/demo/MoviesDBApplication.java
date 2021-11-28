@@ -78,7 +78,7 @@ public class MoviesDBApplication {
 
 	@PutMapping("/updateFilm")
 	public @ResponseBody
-	String Update(@RequestParam int film_id, @RequestParam String description){
+	String UpdateFilm(@RequestParam int film_id, @RequestParam String description){
 		Film updatedfilm = filmRepository.findById(film_id).orElse(null);
 		assert updatedfilm != null;
 		updatedfilm.setDescription(description);

@@ -1,10 +1,12 @@
-package com.institute.software.the.orr.kyle.moviesDB.demo;//package com.institute.software.the.orr.kyle.moviesDB.demo;
-import com.institute.software.the.orr.kyle.moviesDB.demo.FilmRepository;
+package com.institute.software.the.orr.kyle.moviesDB.demo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
 import static org.junit.Assert.assertEquals;
+//@SpringBootTest
 public class CucumberUpdateSD {
 
     @Autowired
