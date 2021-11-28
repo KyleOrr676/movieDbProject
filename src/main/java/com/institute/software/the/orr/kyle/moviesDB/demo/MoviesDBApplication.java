@@ -76,12 +76,16 @@ public class MoviesDBApplication {
 
 	////// UPDATE Function
 
-//	@PutMapping("/updateFilm")
-//	public String updateFilm(@RequestBody Film filmRepository){
-//		System.out.println(filmRepository);
-//		filmRepository.updateList();
-//		return"Film updated successfully";
-//	}
+	@PutMapping("/updateFilm")
+	public @ResponseBody
+	String Update(@RequestParam int film_id, @RequestParam String description){
+		Film updatedfilm = filmRepository.findById(film_id).orElse(null);
+		assert updatedfilm != null;
+		updatedfilm.setDescription(description);
+		filmRepository.save(updatedfilm);
+		return "Description has been successfully updated";
+	}
+
 
 	////// DELETE Function, enter option below to remove film or actor from database
 
