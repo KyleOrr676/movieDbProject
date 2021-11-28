@@ -1,38 +1,30 @@
 package com.institute.software.the.orr.kyle.moviesDB.demo;
-
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+@SpringBootTest
 public class cucumberAddFilmSD {
-
-Film newFilm;
 
     @Autowired
     private FilmRepository filmRepository;
-
-    @Given("I have the information for the film")
-    public void checkInformation(){
-        newFilm = new Film(1, 1, "The Dark Knight", 134, "Batman movie");
+    private Film testFilm;
+    @Given("the film information is available")
+    public void theFilmInformationIsAvailable() {
     }
-    @When("I add The Dark Knight onto the website")
-    public void addFilm(){
-        filmRepository.save(newFilm);
+    @When("i try to add the film with Film ID {int}, language ID {int}, title {string}, length {int}, description {string} to the database")
+    public void iTryToAddTheFilmWithFilmIDLanguageIDTitleLengthDescriptionToTheDatabase(int film_id, int language_id, String title, int length, String description) {
+        testFilm = new Film(film_id, language_id, title, length, description);
+        filmRepository.save(testFilm);
     }
-//    @Then("I should be told Film added successfully")
-//    public void iShouldBeTold()
-
-    @Then("I should be told this film has already been added")
-    public void i_should_be_told_this_film_has_already_been_added() {
-        Optional <Film> film2 = filmRepository.findById(1);
-        Film AddedFilm = film2.get();
-        assertEquals(AddedFilm.getTitle(), newFilm.getTitle());
-        throw new io.cucumber.java.PendingException();
+    @Then("the new film in the database should have Film ID {int}, language ID {int}, title {string}, length {int}, description {string}")
+    public void theNewFilmInTheDatabaseShouldHaveFilmIDLanguageIDTitleLengthDescription(int film_id, int language_id, String title, int length, String description) {
+        int idForNewFilm = filmRepository.searchByTitleLike(title).get(0).getFilm_id();
+        assertEquals(filmRepository.findById(idForNewFilm).get().getLanguage_id(), language_id);
+        assertEquals(filmRepository.findById(idForNewFilm).get().getTitle(), title);
+        assertEquals(filmRepository.findById(idForNewFilm).get().getLength(), length);
+        assertEquals(filmRepository.findById(idForNewFilm).get().getDescription(), description);
     }
 }
