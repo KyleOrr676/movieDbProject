@@ -86,6 +86,15 @@ public class MoviesDBApplication {
 		return "Description has been successfully updated";
 	}
 
+	@PutMapping("/updateActor")
+	public @ResponseBody
+	String UpdateActor(@RequestParam int actor_id, @RequestParam String firstName){
+		Actor updatedactor = actorRepository.findById(actor_id).orElse(null);
+		assert updatedactor != null;
+		updatedactor.setFirstName(firstName);
+		actorRepository.save(updatedactor);
+		return "Actor First Name has been successfully updated";
+	}
 
 	////// DELETE Function, enter option below to remove film or actor from database
 
